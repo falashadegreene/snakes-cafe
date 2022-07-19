@@ -60,7 +60,7 @@ while answer != 'Quit':
         print(f'** {menu[key][answer]} orders of {answer} have been added to your meal **')
         break
 else:
- print('** Sorry this item is unavailable, please order item from our menu **')
+ print('** Item is unavailable, please order another item from our menu **')
 
 answer = input().lower().capitalize()
 
