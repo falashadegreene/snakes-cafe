@@ -36,33 +36,48 @@ Unicorn Tears
 ***********************************
 """)
 # initialize empty meal dictionary
-menu = {
-    'Appetizers': {'Wings': 0, 'Cookies': 0, 'Spring Rolls': 0},
-    'Entrees': {'Salmon': 0, 'Steak': 0, 'Meat Tornado': 0, 'A literal Garden': 0},
-    'Desserts': {'Ice Cream': 0, 'Cake': 0, 'Pie': 0},
-    'Drinks': {'Coffee': 0, 'Tea': 0, 'Unicorn Tears': 0},
+Food_items = {
+    'Wings': 0,
+    'Cookies': 0,
+    'Spring Rolls': 0,
+    'Salmon': 0,
+    'Steak': 0,
+    'Meat Tornado': 0,
+    'A literal Garden': 0,
+    'Ice Cream': 0,
+    'Cake': 0,
+    'Pie': 0,
+    'Coffee': 0,
+    'Tea': 0,
+    'Unicorn Tears': 0,
 }
+
+# customer order prompt
+order = input('> ')
+
+
 # start  loop here until user enters quit
-answer = input().lower().capitalize()
+while order != 'quit':
 
-while answer != 'Quit':
+    if order not in Food_items:
+        print('Please order from items available on menu')
+        order = input('> ')
+        continue
+    if Food_items[order] == 0:
+        Food_items[order] = 1
+        report = f'** {1} order of {order} has been added to your meal **'
+        print(report)
 
-    for key in menu.keys():
-
-     if answer in menu[key].keys():
-
-    menu[key][answer]+= 1
-
-    if menu[key][answer] ==1:
-        print(f'** {menu[key][answer]} order of {answer} has been added to your meal **')
-        break
     else:
-        print(f'** {menu[key][answer]} orders of {answer} have been added to your meal **')
-        break
-else:
- print('** Item is unavailable, please order another item from our menu **')
+        Food_items[order] += 1
+        report = f'** {Food_items[order]} order of {order} has been added to your meal **'
+        print(report)
 
-answer = input().lower().capitalize()
+    order = input('> ')
+
+
+
+
 
 
 
